@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&family=Source+Sans+Pro&display=swap');
+
+#Text::-webkit-scrollbar-track{
+	background-color: #e2e2e2;
+}
+
+#Text::-webkit-scrollbar{
+	width: 6px;
+	background-color: #F5F5F5;
+}
+
+#Text::-webkit-scrollbar-thumb{
+	border-radius: 100px;
+	background-color: #545454;
+}
+
+#Text{
+	overflow: auto;
+	overflow-x: hidden;
+	height:240px;
+	width: 100vw;
+	color: white;
+
+}
+
+
+textarea{
+    background: url(http://i.imgur.com/2cOaJ.png);
+    background-attachment: local;
+    background-repeat: no-repeat;
+    background-color: #0B3861;
+    color: white;
+    padding-left: 35px;
+    border-color:#ccc;
+    margin-top: 60px;
+    font-family: 'Source Code Pro', monospace;
+}
+
+
+
+#Text .resize-btn{
+	display: block;
+	width: 25px;
+	height: 10px;
+	background-color: #050506;
+	position: absolute;
+	left: calc(50% - 25px * 0.5);
+	bottom: -5px;
+	border-radius: 3px;
+	cursor: row-resize;
+	z-index: 9;
+}
+
+
+
+.resize-btn:before,
+.resize-btn:after{
+	content: '';
+	display: block;
+	width: 70%;
+	height: 1px;
+	background-color: #747982;
+	position: relative;
+	left: calc(50% - 70% * 0.5);
+}
+
+.resize-btn:before{
+	top: 3px;
+}
+
+.resize-btn:after{
+	top: 5px;
+}

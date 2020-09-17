@@ -1,0 +1,12 @@
+
+.charts--space{
+	display: flex;
+	position: relative;
+	height: 300px;
+}
+
+canvas {
+	height: 100px;
+	width: 100px;
+	margin-bottom: 60px;
+}
