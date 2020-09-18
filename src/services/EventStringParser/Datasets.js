@@ -85,7 +85,7 @@ export default class Datasets{
 	 * @desc Generates a random color to be used
 	 * as the dataset color.
 	 * 
-	 * @return {String} random color in the rba
+	 * @return {String} random color in the rgb
 	 * format.
 	*/
 	randomColor(){
