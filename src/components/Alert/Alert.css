@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap');
+
 .modal-overlay{
 	position: absolute;
 	width: 100%;
@@ -14,12 +16,12 @@
 .modal{
 	position: absolute;
 	width: 450px;
-	height: 280px;
+	height: 350px;
 	background-color: white;
 	border-radius: 2px;
 	box-shadow: 1px 1px 15px 1px rgba(0, 0, 0, 0.7);
 	left: calc(50% - 450px*0.5);
-	top: 10%;
+	top: 15%;
 	z-index: 199;
 	padding: 30px;
 	padding-bottom: 15px;
@@ -50,18 +52,20 @@
 	margin-top: 15px;
 	text-align: left;
 	font-size: 12px;
-	max-height: 85px;
+	max-height: 180px;
 	line-height: 1.5;
 	overflow-y: auto;
 	background-color: #eee;
 	padding: 5px;
+	font-family: 'Courier Prime', monospace;
+
 }
 
 .modal .btn{
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	text-align: right;
+	text-align: center;
 }
 
 .modal .btn button{
@@ -71,7 +75,14 @@
   	color: white;
   	font-size: 14px;
   	border: none;
-  	border-radius: 2px;
+  	border-radius: 0.5rem;
   	align-self: center;
   	cursor: pointer;
+}
+
+.modal .btn button:hover{
+	background-color: white;
+  	color: #017eff;
+  	border: 2px solid #017eff;
+  	border-radius: 0.5rem;
 }

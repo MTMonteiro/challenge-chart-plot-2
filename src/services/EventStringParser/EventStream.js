@@ -52,7 +52,6 @@ export default class EventStream{
 	 * processed.
 	*/
 	updateDataset(evt){
-		
 		if( !this.checkBondaries(evt) )
 			return;
 

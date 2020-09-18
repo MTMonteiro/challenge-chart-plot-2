@@ -5,7 +5,7 @@ export default () => {
 
 	return (
 		<header>
-			<h1>Matheus Monteiro's Challenge</h1>
+			<h2>Matheus Monteiro's Challenge</h2>
 		</header>
 	)
 }

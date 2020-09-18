@@ -1,10 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 import './Footer.css'
 
+function Footer({ onClickButton }) {
 
-export default ({ onClickButton }) => {
-	
 	return (
 		<div className="footer-area">
 			<footer>
@@ -12,4 +12,12 @@ export default ({ onClickButton }) => {
 			</footer>
 		</div>
 		)
+
 }
+
+
+Footer.propTypes = {
+	onClickButton: PropTypes.func.isRequired
+};
+
+export default Footer;

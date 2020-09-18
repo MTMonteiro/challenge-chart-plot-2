@@ -10,8 +10,9 @@ import React from 'react';
 import {Line} from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 
-import {chartDefaultOptions} from '../../services/Utils/chart.js';
-import './style.css';
+import {chartDefaultOptions} from '../../constants/Charts.constants.js';
+
+import './Charts.css';
 
 class Chart extends React.Component{
 
@@ -41,12 +42,16 @@ class Chart extends React.Component{
 				this.legendRef[i].innerHTML = this.chartRef[i].chartInstance.generateLegend();
 	}
 
+	//width   = {600}
+	//height  = {265} 
+
 	render(){
 
 		const {eventStreamList} = this.props;
 
 		return(
-			<div className = "charts-">
+			<>
+			{/*<div className = "charts">*/}
 				{/* Support for N charts depending on the number of start events */}
 				{eventStreamList.getList().map( (v, k) => {
 					
@@ -74,7 +79,7 @@ class Chart extends React.Component{
 					);
 
 				})}
-			</div>
+			</>
 		);
 	}
 };
@@ -84,47 +89,3 @@ Chart.propTypes = {
 };
 
 export default Chart;
-
-
-/*
-import React from 'react'
-import { Line } from 'react-chartjs-2';
-
-
-import './Charts.css'
-
-const data = { labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-		        datasets: [{
-		            label: 'My First dataset',
-		            backgroundColor: 'rgba(0, 0, 0, 0)',
-		            //borderColor: 'rgb(255, 99, 132)',
-		            data: [0, 10, 5, 2, 20, 30, 40]
-		        }]
-    		}
-
-
-const options = {
-			maintainAspectRatio: true,
-            legend: {
-                usePointStyle: true,
-                position: 'right'},
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-
-export default () => {
-	return(
-		<div className="charts--space">
-			<Line 
-				data={data}
-				options={options}
-  			/>
-		</div>
-		)
-}
-*/

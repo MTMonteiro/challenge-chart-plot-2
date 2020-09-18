@@ -5,7 +5,7 @@
 */
 
 
-import { commonDatasetOptions } from '../Utils/chart.js';
+import { commonDatasetOptions } from '../../constants/Charts.constants.js';
 
 export default class Datasets{
 	
@@ -67,7 +67,6 @@ export default class Datasets{
 	 * Replace all '_' with spaces and put the
 	 * first letter of each word in upper 
 	 * case.
-	 * Ex: "ola_mundo_azul" => "Ola Mundo Azul"
 	 *
 	 * @param {String} seriedID dataset ID
 	 * to be transformed in label format.
@@ -107,4 +106,5 @@ export default class Datasets{
 	toChartFormat(){
 		return Array.from( this.datasets.values() );
 	}
+
 }

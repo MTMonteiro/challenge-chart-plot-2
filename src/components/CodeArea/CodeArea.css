@@ -12,20 +12,20 @@
 }
 
 .ace-monokai{
-	background-color: #2e3440 !important;
-	color: #e0e0e0 !important;
+	background-color: #2e3440 ;
+	color: #e0e0e0 ;
 }
 
 .ace-monokai .ace_marker-layer .ace_active-line,
 .ace-monokai .ace_gutter-active-line {
-    background: none !important;
+    background: none ;
 }
 .ace_gutter-cell{
-	color: #393f48 !important;
+	color: #393f48 ;
 }
 
 .ace-monokai .ace_gutter {
-    background: #60656e !important;
+    background: #60656e ;
 }
 
 .ace-editor{
@@ -35,13 +35,13 @@
 .editor-wrapper{
 	height: 235px;
 	position: relative;
-	margin-top: 60px;
+
 }
 
 .editor-wrapper .resize-btn{
 	display: block;
-	width: 25px;
-	height: 10px;
+	width: 27px;
+	height: 12px;
 	background-color: #050506;
 	position: absolute;
 	left: calc(50% - 25px * 0.5);
@@ -51,13 +51,22 @@
 	z-index: 9;
 }
 
+.editor-wrapper .resize-btn:hover{
+	background-color: white;
+	color: black;
+}
+
+.editor-wrapper .resize-btn:active{
+	background-color: white;
+	color: black;
+}
 
 .editor-wrapper .resize-btn:before,
 .editor-wrapper .resize-btn:after{
 	content: '';
 	display: block;
 	width: 70%;
-	height: 1px;
+	height: 2px;
 	background-color: #747982;
 	position: relative;
 	left: calc(50% - 70% * 0.5);

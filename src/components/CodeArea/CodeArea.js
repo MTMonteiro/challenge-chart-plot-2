@@ -1,22 +1,22 @@
 import React, {useEffect, useState, useRef} from 'react';
+import PropTypes from 'prop-types';
 import AceEditor from 'react-ace';
 import "ace-builds/src-noconflict/mode-javascript";
 import "ace-builds/src-noconflict/theme-monokai";
 import './CodeArea.css';
 
-function CodeEditor(props) {
 
+function CodeEditor(props) {
 	const editorWrapper = useRef(null)	
 	const [resizeYpivot, setResizeYpivot] = useState(0)
 	const [codeCurrentHeight, setCodeCurrentHeight] = useState(0)
 	const [resizing, setResizing] = useState(false)
 
 
-		/* Registering mouse events to be used in resize action */
+	/* Registering mouse events to be used in resize action */
 	useEffect(() => {
 		const onMouseUp = () => {
 			if( resizing ){
-				//resizing = false;
 				setResizing(false);
 				document.body.style.cursor = "auto";
 				document.body.style.userSelect = "auto";
@@ -25,41 +25,46 @@ function CodeEditor(props) {
 
 
 
-		const onMouseMove = (evt) => {
-			if( resizing === true ){
+		const onMouseMove = (event) => {
+				if( resizing === true ){
 
-					const currHeight = codeCurrentHeight;
-					
-					if( evt.clientY > resizeYpivot ){
+						if( event.clientY > resizeYpivot ){
 
-						const nh = evt.clientY - resizeYpivot;
-						
-						/* LIMIT: make the chart always visible */
-						if ( nh + currHeight <= 260 )
-							editorWrapper.current.style.height = currHeight + nh + "px";
-					}else{
-						
-						const nh = resizeYpivot - evt.clientY;
-						editorWrapper.current.style.height = currHeight - nh + "px";
-					}
+							const nh = event.clientY - resizeYpivot;
+							
+							/* LIMIT: make the chart always visible */
+							if ( nh + codeCurrentHeight <= 259 )
+								editorWrapper.current.style.height = codeCurrentHeight + nh + "px";
+								document.getElementsByClassName("chart-wrapper")[0].style.height = "265px"
+								
+						}else{
+							
+							const nh = resizeYpivot - event.clientY;
+							editorWrapper.current.style.height = codeCurrentHeight - nh + "px";
+							// 265
+							document.getElementsByClassName("chart-wrapper")[0].style.height = "420px";
+						}
+							
+				}
+		}
+
+
+			document.body.addEventListener('mousemove', onMouseMove);
+			document.body.addEventListener('mouseup', onMouseUp);
+
+			return () => {
+	          	document.body.removeEventListener('mouseup', onMouseUp);
+				document.body.removeEventListener('mousemove', onMouseMove);
 			}
-		}
-
-		document.body.addEventListener('mousemove', onMouseMove);
-		document.body.addEventListener('mouseup', onMouseUp);
-
-		return () => {
-          	document.body.removeEventListener('mouseup', onMouseUp);
-			document.body.removeEventListener('mousemove', onMouseMove);
-		}
 
 	}, [resizing, resizeYpivot, codeCurrentHeight])
 
+	/*@param {target} element span resize*/
 	const onMouseDown = ({target}) => {
 
 		setResizeYpivot(target.offsetParent.offsetTop + target.offsetTop);
-		const test = editorWrapper.current.style.height || "235px"
-		setCodeCurrentHeight(parseInt(test, 10));
+		const sizing = editorWrapper.current.style.height || "235px"
+		setCodeCurrentHeight(parseInt(sizing, 10));
 
 		setResizing(true);
 		document.body.style.cursor = "row-resize";
@@ -70,7 +75,7 @@ function CodeEditor(props) {
 		return (
 			<div 
 				className = "editor-wrapper"
-				ref 	  = {editorWrapper}>
+				ref 	  = { (el) =>  {return editorWrapper.current = el} }>
 				<AceEditor
 				    mode            = "javascript"
 				    theme           = "monokai"
@@ -92,6 +97,12 @@ function CodeEditor(props) {
   			</div>
 		);
 	
+};
+
+CodeEditor.propTypes = {
+	defaultValue: PropTypes.string,
+	value: PropTypes.string.isRequired,
+	onChange: PropTypes.func.isRequired
 };
 
 export default CodeEditor;

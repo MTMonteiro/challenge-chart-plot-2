@@ -6,9 +6,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './style.css';
+import './Alert.css';
 
-function ErrorAlert(props){
+function Alert(props){
 	const open = props.error.hasOwnProperty('message');
 	return(
 		<>
@@ -22,6 +22,7 @@ function ErrorAlert(props){
 					<div className = "stack-trace">
 						{props.error && (props.error.stack)}
 					</div>
+					<br/>
 					<div className = "btn">
 						<button onClick = {props.dismiss}>Dismiss</button>
 					</div>
@@ -32,9 +33,9 @@ function ErrorAlert(props){
 	);
 };
 
-ErrorAlert.propTypes = {
+Alert.propTypes = {
 	error: PropTypes.object.isRequired,
 	dismiss: PropTypes.func.isRequired
 };
 
-export default ErrorAlert;
+export default Alert;

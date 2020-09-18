@@ -1,3 +1,4 @@
+
 /* Just some options to make ChartJS work properly */
 
 
